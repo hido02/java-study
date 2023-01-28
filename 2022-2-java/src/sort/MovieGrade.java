@@ -1,4 +1,4 @@
-package MovieGrade;
+package sort;
 
 import java.util.Scanner;
 
@@ -43,11 +43,24 @@ public class MovieGrade {
             result[counting[value]] = value;
         }
 
-        // 정렬된 배열
-        System.out.println("result[]");
-        for(int i = 0; i < result.length; i++) {
-            if(i % 10 == 0) System.out.println();
-            System.out.print(result[i] + "\t");
+//        // 정렬된 배열
+//        System.out.println("result[]");
+//        for(int i = 0; i < result.length; i++) {
+//            if(i % 10 == 0) System.out.println();
+//            System.out.print(result[i] + "\t");
+//        }
+//        System.out.println();
+
+        int[] sorted = new int[50];
+        int j = 0;
+        for(int i = result.length - 1; i > result.length - N; i--) {
+            sorted[j] = result[i];
+            j++;
+        }
+
+        System.out.println("sorted[]");
+        for(int i = 0; i < sorted.length; i++) {
+            System.out.print(sorted[i] + "\t");
         }
         System.out.println();
 
@@ -68,13 +81,13 @@ public class MovieGrade {
             result[i] = 0;
         }
 
-        // 정렬된 배열
-        System.out.println("result[]");
-        for(int i = 0; i < result.length; i++) {
-            if(i % 10 == 0) System.out.println();
-            System.out.print(result[i] + "\t");
-        }
-        System.out.println();
+//        // 정렬된 배열
+//        System.out.println("result[]");
+//        for(int i = 0; i < result.length; i++) {
+//            if(i % 10 == 0) System.out.println();
+//            System.out.print(result[i] + "\t");
+//        }
+//        System.out.println();
 
         int sum = 0;
         for(int i = 0; i < result.length; i++) {
@@ -82,6 +95,8 @@ public class MovieGrade {
         }
         double avg;
         avg = (double) sum / (N - L - H);
+
+        System.out.println("sum: "+sum);
 
         System.out.println("output: "+avg);
 

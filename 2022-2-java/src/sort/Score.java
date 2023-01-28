@@ -51,13 +51,13 @@ public class Score {
                     result[counting[value]] = value;
                 }
 
-//                // 정렬된 배열
-//                System.out.println("result[]");
-//                for(int k = 0; k < result.length; k++) {
-//                    if(k % 10 == 0) System.out.println();
-//                    System.out.println(result[k] + "\t");
-//                }
-//                System.out.println();
+                // 정렬된 배열
+                System.out.println("result[]");
+                for(int k = 0; k < result.length; k++) {
+                    if(k % 10 == 0) System.out.println();
+                    System.out.println(result[k] + "\t");
+                }
+                System.out.println();
 
                 result[0] = 0;
                 result[4] = 0;
@@ -66,9 +66,9 @@ public class Score {
                     sum[i] += result[k];
                 }
 
-                if((result[3] - result[1]) >= 4) {
-                    kin[i] = i;
-                }
+//                if((result[3] - result[1]) >= 4) {
+//                    kin[i] = i;
+//                }
 
 //                for(int k = 0; k < sum.length; k++) {
 //                    System.out.println(sum[i] + "\t");
@@ -86,9 +86,9 @@ public class Score {
         System.out.println("output");
         for(int i = 0; i < sum.length; i++) {
             System.out.println(sum[i]);
-            if(i == kin[i]) {
-                break;
-            }
+//            if(i == kin[i]) {
+//                break;
+//            }
         }
     }
 }

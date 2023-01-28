@@ -13,8 +13,8 @@ public class rodcut {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[] partPrice = new int[n + 1];
-        int[] maxPricePerLength = new int[n + 1];
+        int[] partPrice = new int[n + 1]; // 길이별 가격
+        int[] maxPricePerLength = new int[n + 1]; // 길이 n의 막대를 자르는 최대값
 
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         for (int i = 1; i <= n; i++) {
