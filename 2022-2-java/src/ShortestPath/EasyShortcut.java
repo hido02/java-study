@@ -4,15 +4,17 @@ import java.util.*;
 import java.io.*;
 
 public class EasyShortcut {
-    static int n, m;
-    static int[][] map;
-    static int[][] dist;
-    static boolean[][] visited = new boolean[n][m];
-    static int[] xMove = {0, 0, -1, 1}; // 상하좌우
-    static int[] yMove = {1, -1, 0, 0};
+    private static int n, m; // 지도의 크기 n: 세로 m: 가로
+    private static int[][] map; // 입력받는 지도
+    private static int[][] dist; // 지도의 각 지점의 최소 이동거리
+    private static boolean[][] visited = new boolean[n][m]; // 각 지점의 방문 여부를 저장할 배열
+    // 상하좌우
+    private static int[] xMove = {0, 0, -1, 1};
+    private static int[] yMove = {1, -1, 0, 0};
 
     public static void main(String[] args) throws IOException {
 
+        // 매우 큰 크기의 배열을 탐색하므로, Scanner보다는 BufferedReader로 입출력
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         StringBuilder builder = new StringBuilder();
@@ -21,9 +23,9 @@ public class EasyShortcut {
         int m = Integer.parseInt(st.nextToken());
         int[][] map = new int[n][m];
         int[][] dist = new int[n][m];
-        int startX = -1, startY = -1;
+        int startX = -1, startY = -1; // 목표지점의 좌표 -> bfs의 시작 지점
 
-        // 거리 배열은 -1로 초기화해준다.
+        // 거리 배열은 처음에 -1(원래 갈 수 있는데 도달할 수 없는 경우)로 초기화해준다.
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 dist[i][j] = -1;
@@ -39,15 +41,16 @@ public class EasyShortcut {
                 // 목표지점(2)일 경우
                 if (map[i][j] == 2) {
                     visited[i][j] = true;
-                    dist[i][j] = 0; // 애초에 갈 수 없는 곳이므로 거리 배열에 0 저장
+                    dist[i][j] = 0; // 목표지점은 원래 갈 수 없는 곳이므로 거리 배열에 0 저장
                     startX = i;
                     startY = j;
                 }
             }
         }
 
-        bfs(startX, startY);
+        bfs(startX, startY); // 목표지점을 시작으로 bfs
 
+        // 출력 부분
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (!visited[i][j] && map[i][j] == 1) { // 방문하지 않았고 갈 수 있는 곳이라면
